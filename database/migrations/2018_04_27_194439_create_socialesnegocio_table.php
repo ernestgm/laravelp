@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClienteTable extends Migration
+class CreateSocialesnegocioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('socialesnegocio', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('url');
 
-            $table->foreign('id_usuario')
-                ->references('id')->on('usuario')
+            $table->foreign('id_negocio')
+                ->references('id')->on('negocio')
                 ->onDelete('cascade');
 
-            $table->foreign('id_pais')
-                ->references('id')->on('pais');
+            $table->foreign('id_redsocial')
+                ->references('id')->on('redsocial');
 
             $table->softDeletes();
             $table->timestamps();
@@ -35,6 +36,6 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('socialesnegocio');
     }
 }

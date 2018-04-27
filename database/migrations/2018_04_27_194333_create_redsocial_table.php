@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClienteTable extends Migration
+class CreateRedsocialTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,10 @@ class CreateClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('redsocial', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->foreign('id_usuario')
-                ->references('id')->on('usuario')
-                ->onDelete('cascade');
-
-            $table->foreign('id_pais')
-                ->references('id')->on('pais');
-
-            $table->softDeletes();
+            $table->string('nombre');
+            $table->string('icono');
             $table->timestamps();
         });
     }
@@ -35,6 +28,6 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('redsocial');
     }
 }

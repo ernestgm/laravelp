@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactTable extends Migration
+class CreatePagoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,17 @@ class CreateContactTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact', function (Blueprint $table) {
+        Schema::create('pago', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('codigo')->unique();
+            $table->double('total');
+            $table->integer('tipo_pago');
+
+            $table->foreign('id_reserva')
+                ->references('id')->on('reserva')
+                ->onDelete('cascade');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +35,6 @@ class CreateContactTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact');
+        Schema::dropIfExists('pago');
     }
 }

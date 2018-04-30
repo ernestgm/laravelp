@@ -15,10 +15,13 @@ class CreateProvinciaTable extends Migration
     {
         Schema::create('provincia', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('nombre');
 
+            $table->unsignedInteger('id_pais');
             $table->foreign('id_pais')
                 ->references('id')->on('pais');
+
+            $table->timestamps();
         });
     }
 

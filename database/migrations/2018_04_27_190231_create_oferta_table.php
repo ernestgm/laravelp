@@ -19,14 +19,16 @@ class CreateOfertaTable extends Migration
             $table->integer('estado');
             $table->string('nombre');
             $table->double('precio');
-            $table->double('modalidad_precio');
+            $table->string('modalidad_precio');
             $table->dateTime('fecha_activa_inicio');
             $table->dateTime('fecha_activa_fin');
 
+            $table->unsignedInteger('id_negocio');
             $table->foreign('id_negocio')
                 ->references('id')->on('negocio')
                 ->onDelete('cascade');
 
+            $table->unsignedInteger('id_categoria');
             $table->foreign('id_categoria')
                 ->references('id')->on('categoria');
 

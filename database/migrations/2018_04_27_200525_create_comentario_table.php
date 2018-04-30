@@ -17,6 +17,7 @@ class CreateComentarioTable extends Migration
             $table->increments('id');
             $table->string('mensaje');
 
+            $table->unsignedInteger('id_reserva');
             $table->foreign('id_reserva')
                 ->references('id')->on('reserva')
                 ->onDelete('cascade');

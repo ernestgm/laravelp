@@ -15,10 +15,13 @@ class CreateMunicipioTable extends Migration
     {
         Schema::create('municipio', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('nombre');
 
+            $table->unsignedInteger('id_provincia');
             $table->foreign('id_provincia')
                 ->references('id')->on('provincia');
+
+            $table->timestamps();
         });
     }
 

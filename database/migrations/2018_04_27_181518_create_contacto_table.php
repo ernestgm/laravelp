@@ -16,13 +16,16 @@ class CreateContactoTable extends Migration
         Schema::create('contacto', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->unsignedInteger('id_usuario');
             $table->foreign('id_usuario')
                 ->references('id')->on('usuario')
                 ->onDelete('cascade');
 
+            $table->unsignedInteger('id_municipio');
             $table->foreign('id_municipio')
                 ->references('id')->on('municipio');
 
+            $table->unsignedInteger('id_negocio');
             $table->foreign('id_negocio')
                 ->references('id')->on('negocio');
 

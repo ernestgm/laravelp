@@ -17,10 +17,12 @@ class CreateSocialesnegocioTable extends Migration
             $table->increments('id');
             $table->string('url');
 
+            $table->unsignedInteger('id_negocio');
             $table->foreign('id_negocio')
                 ->references('id')->on('negocio')
                 ->onDelete('cascade');
 
+            $table->unsignedInteger('id_redsocial');
             $table->foreign('id_redsocial')
                 ->references('id')->on('redsocial');
 

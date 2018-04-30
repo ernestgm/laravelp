@@ -24,10 +24,12 @@ class CreateReservaTable extends Migration
             $table->dateTime('fecha_creacion');
             $table->dateTime('fecha_vencimiento');
 
+            $table->unsignedInteger('id_oferta');
             $table->foreign('id_oferta')
                 ->references('id')->on('oferta')
                 ->onDelete('cascade');
 
+            $table->unsignedInteger('id_cliente');
             $table->foreign('id_cliente')
                 ->references('id')->on('cliente');
 

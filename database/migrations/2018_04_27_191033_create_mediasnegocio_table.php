@@ -16,11 +16,12 @@ class CreateMediasnegocioTable extends Migration
         Schema::create('mediasnegocio', function (Blueprint $table) {
             $table->increments('id');
 
-
+            $table->unsignedInteger('id_negocio');
             $table->foreign('id_negocio')
                 ->references('id')->on('negocio')
                 ->onDelete('cascade');
 
+            $table->unsignedInteger('id_media');
             $table->foreign('id_media')
                 ->references('id')->on('media')
                 ->onDelete('cascade');

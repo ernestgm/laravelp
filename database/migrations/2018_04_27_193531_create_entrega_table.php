@@ -15,11 +15,14 @@ class CreateEntregaTable extends Migration
     {
         Schema::create('entrega', function (Blueprint $table) {
             $table->increments('id');
+            $table->double('precio');
 
+            $table->unsignedInteger('id_oferta');
             $table->foreign('id_oferta')
                 ->references('id')->on('oferta')
                 ->onDelete('cascade');
 
+            $table->unsignedInteger('id_tipoentrega');
             $table->foreign('id_tipoentrega')
                 ->references('id')->on('tipoentrega');
 

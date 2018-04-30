@@ -16,11 +16,12 @@ class CreateMediasofertaTable extends Migration
         Schema::create('mediasoferta', function (Blueprint $table) {
             $table->increments('id');
 
-
+            $table->unsignedInteger('id_oferta');
             $table->foreign('id_oferta')
                 ->references('id')->on('oferta')
                 ->onDelete('cascade');
 
+            $table->unsignedInteger('id_media');
             $table->foreign('id_media')
                 ->references('id')->on('media')
                 ->onDelete('cascade');

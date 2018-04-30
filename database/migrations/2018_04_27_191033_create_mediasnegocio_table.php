@@ -15,6 +15,7 @@ class CreateMediasnegocioTable extends Migration
     {
         Schema::create('mediasnegocio', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('resolucion');
 
             $table->unsignedInteger('id_negocio');
             $table->foreign('id_negocio')

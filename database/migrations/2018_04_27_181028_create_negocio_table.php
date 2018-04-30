@@ -22,11 +22,6 @@ class CreateNegocioTable extends Migration
             $table->string('correo');
             $table->string('telefono');
 
-            $table->unsignedInteger('id_municipio');
-            $table->foreign('id_municipio')
-                ->references('id')->on('municipio');
-
-
             $table->timestamps();
         });
     }

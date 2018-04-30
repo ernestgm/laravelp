@@ -15,6 +15,7 @@ class CreateMediasofertaTable extends Migration
     {
         Schema::create('mediasoferta', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('resolucion');
 
             $table->unsignedInteger('id_oferta');
             $table->foreign('id_oferta')

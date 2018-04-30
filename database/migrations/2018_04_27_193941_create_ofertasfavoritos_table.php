@@ -16,9 +16,9 @@ class CreateOfertasfavoritosTable extends Migration
         Schema::create('ofertasfavoritos', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('id_cliente');
-            $table->foreign('id_cliente')
-                ->references('id')->on('cliente')
+            $table->unsignedInteger('id_usuario');
+            $table->foreign('id_usuario')
+                ->references('id')->on('usuario')
                 ->onDelete('cascade');
 
             $table->unsignedInteger('id_oferta');

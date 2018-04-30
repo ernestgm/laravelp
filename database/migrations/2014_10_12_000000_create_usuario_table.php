@@ -21,7 +21,6 @@ class CreateUsuarioTable extends Migration
             $table->string('password');
             $table->string('telefono');
             $table->string('movil');
-            $table->string('direccion');
 
 
             $table->rememberToken();

@@ -17,13 +17,13 @@ class CreateMediasofertaTable extends Migration
             $table->increments('id');
             $table->string('resolucion');
 
-            $table->unsignedInteger('id_oferta');
-            $table->foreign('id_oferta')
+            $table->unsignedInteger('oferta_id');
+            $table->foreign('oferta_id')
                 ->references('id')->on('oferta')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('id_media');
-            $table->foreign('id_media')
+            $table->unsignedInteger('media_id');
+            $table->foreign('media_id')
                 ->references('id')->on('media')
                 ->onDelete('cascade');
 

@@ -17,13 +17,13 @@ class CreateMediasnegocioTable extends Migration
             $table->increments('id');
             $table->string('resolucion');
 
-            $table->unsignedInteger('id_negocio');
-            $table->foreign('id_negocio')
+            $table->unsignedInteger('negocio_id');
+            $table->foreign('negocio_id')
                 ->references('id')->on('negocio')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('id_media');
-            $table->foreign('id_media')
+            $table->unsignedInteger('media_id');
+            $table->foreign('media_id')
                 ->references('id')->on('media')
                 ->onDelete('cascade');
 

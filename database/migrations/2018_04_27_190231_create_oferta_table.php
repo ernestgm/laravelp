@@ -23,13 +23,13 @@ class CreateOfertaTable extends Migration
             $table->dateTime('fecha_activa_inicio');
             $table->dateTime('fecha_activa_fin');
 
-            $table->unsignedInteger('id_negocio');
-            $table->foreign('id_negocio')
+            $table->unsignedInteger('negocio_id');
+            $table->foreign('negocio_id')
                 ->references('id')->on('negocio')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('id_categoria');
-            $table->foreign('id_categoria')
+            $table->unsignedInteger('categoria_id');
+            $table->foreign('categoria_id')
                 ->references('id')->on('categoria');
 
             $table->softDeletes();

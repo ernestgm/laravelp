@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Usuario extends Authenticatable
 {
     use Notifiable;
+    protected $table = 'usuario';
 
     /**
      * The attributes that are mass assignable.
@@ -41,6 +42,9 @@ class Usuario extends Authenticatable
 
     public function direcciones()
     {
-        return $this->hasMany('App/Direccion');
+        return $this->belongsToMany(
+            'App\Direccion',
+            'direccionusuario',
+            'usuario_id', 'direccion_id');
     }
 }

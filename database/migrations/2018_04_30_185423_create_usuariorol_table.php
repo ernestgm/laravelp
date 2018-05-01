@@ -16,13 +16,13 @@ class CreateUsuariorolTable extends Migration
         Schema::create('usuariorol', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('id_usuario');
-            $table->foreign('id_usuario')
+            $table->unsignedInteger('usuario_id');
+            $table->foreign('usuario_id')
                 ->references('id')->on('usuario')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('id_rol');
-            $table->foreign('id_rol')
+            $table->unsignedInteger('rol_id');
+            $table->foreign('rol_id')
                 ->references('id')->on('rol');
 
             $table->softDeletes();

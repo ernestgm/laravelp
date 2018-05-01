@@ -15,15 +15,15 @@ class CreateDireccionNegocioTable extends Migration
     {
         Schema::create('direccionnegocio', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('geolocalizacion');
+            $table->string('geolocalizacion')->default('{}');
 
-            $table->unsignedInteger('id_negocio');
-            $table->foreign('id_negocio')
+            $table->unsignedInteger('negocio_id');
+            $table->foreign('negocio_id')
                 ->references('id')->on('negocio')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('id_direccion');
-            $table->foreign('id_direccion')
+            $table->unsignedInteger('direccion_id');
+            $table->foreign('direccion_id')
                 ->references('id')->on('direccion')
                 ->onDelete('cascade');
 

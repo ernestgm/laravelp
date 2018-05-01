@@ -16,13 +16,13 @@ class CreateDireccionUsuarioTable extends Migration
         Schema::create('direccionusuario', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('id_usuario');
-            $table->foreign('id_usuario')
+            $table->unsignedInteger('usuario_id');
+            $table->foreign('usuario_id')
                 ->references('id')->on('usuario')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('id_direccion');
-            $table->foreign('id_direccion')
+            $table->unsignedInteger('direccion_id');
+            $table->foreign('direccion_id')
                 ->references('id')->on('direccion')
                 ->onDelete('cascade');
 

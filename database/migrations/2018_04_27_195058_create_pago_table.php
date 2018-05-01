@@ -19,8 +19,8 @@ class CreatePagoTable extends Migration
             $table->double('total');
             $table->integer('tipo_pago');
 
-            $table->unsignedInteger('id_reserva');
-            $table->foreign('id_reserva')
+            $table->unsignedInteger('reserva_id');
+            $table->foreign('reserva_id')
                 ->references('id')->on('reserva')
                 ->onDelete('cascade');
 

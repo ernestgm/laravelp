@@ -17,13 +17,13 @@ class CreateEntregaTable extends Migration
             $table->increments('id');
             $table->double('precio');
 
-            $table->unsignedInteger('id_oferta');
-            $table->foreign('id_oferta')
+            $table->unsignedInteger('oferta_id');
+            $table->foreign('oferta_id')
                 ->references('id')->on('oferta')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('id_tipoentrega');
-            $table->foreign('id_tipoentrega')
+            $table->unsignedInteger('tipoentrega_id');
+            $table->foreign('tipoentrega_id')
                 ->references('id')->on('tipoentrega');
 
             $table->softDeletes();

@@ -17,8 +17,6 @@ class CreateNegocioTable extends Migration
             $table->increments('id');
 
             $table->string('nombre');
-            $table->string('direccion');
-            $table->string('geolocalizacion');
             $table->string('correo');
             $table->string('telefono');
 

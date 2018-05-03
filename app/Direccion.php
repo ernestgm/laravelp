@@ -35,6 +35,6 @@ class Direccion extends Model
      */
     public function negocio()
     {
-        return $this->belongsToMany('App\Negocio')->using('App/DireccionNegocio');
+        return $this->belongsToMany('App\Negocio')->using('App\DireccionNegocio');
     }
 }

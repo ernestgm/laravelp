@@ -24,4 +24,37 @@ class Negocio extends Model
             'direccionnegocio',
             'negocio_id', 'direccion_id')->withPivot('geolocalizacion');
     }
+
+    public function contacto()
+    {
+        return $this->belongsToMany(
+            'App\Usuario',
+            'contacto',
+            'negocio_id', 'usuario_id');
+    }
+
+    public function medias()
+    {
+        return $this->belongsToMany(
+            'App\Media',
+            'mediasnegocio',
+            'negocio_id', 'media_id')->withPivot('resolucion');
+    }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function ofertas()
+    {
+        return $this->hasMany('App\Oferta');
+    }
+
+    public function redessociales()
+    {
+        return $this->belongsToMany(
+            'App\RedSocial',
+            'socialesnegocio',
+            'negocio_id', 'redsocial_id')->withPivot('url');
+    }
+
 }

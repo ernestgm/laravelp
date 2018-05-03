@@ -47,4 +47,36 @@ class Usuario extends Authenticatable
             'direccionusuario',
             'usuario_id', 'direccion_id');
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(
+            'App\Rol',
+            'usuariorol',
+            'usuario_id', 'rol_id');
+    }
+
+    public function negocio()
+    {
+        return $this->belongsToMany(
+            'App\Negocio',
+            'contacto',
+            'usuario_id', 'negocio_id');
+    }
+
+    public function favoritos()
+    {
+        return $this->belongsToMany(
+            'App\Oferta',
+            'ofertasfavoritos',
+            'usuario_id', 'oferta_id');
+    }
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function reservas()
+    {
+        return $this->hasMany('App\Reserva');
+    }
 }
